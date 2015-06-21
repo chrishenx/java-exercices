@@ -28,10 +28,9 @@ public class BinarySubstractor {
   
   /// Devuelve el binario correspondiente al valor absoluto de la resta
   public String performSubstraction() {
-    String[] binaries = getBinaries();
-    if (binaries != null) {
-      String binaryOne = binaries[0];
-      String binaryTwo = binaries[1];
+    if (numberOne != numberTwo) {
+      String binaryOne = getBinaryOne();
+      String binaryTwo = getBinaryTwo();
       while (binaryOne.length() > binaryTwo.length()) {
         binaryTwo = "0" + binaryTwo;
       }
@@ -60,14 +59,4 @@ public class BinarySubstractor {
   public String getBinaryTwo() {
     return Integer.toBinaryString(numberTwo);
   }
-  
-  private String[] getBinaries() {
-    if (numberOne > numberTwo) {
-      return new String[] { getBinaryOne(), getBinaryTwo() };
-    } else if (numberOne < numberTwo) {
-      return new String[] { getBinaryTwo(), getBinaryOne()  };
-    }
-    return null;
-  }
-
 }
